@@ -12,12 +12,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.templeeventregistration.admin.AdminActivity;
-import com.project.templeeventregistration.databinding.ActivityMainBinding;
+import com.project.templeeventregistration.databinding.ActivityLoginBinding;
 import com.project.templeeventregistration.user.UserActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = "LoginActivity";
-    ActivityMainBinding mainBinding;
+    ActivityLoginBinding mainBinding;
     boolean valid = true;
     FirebaseAuth auth;
     FirebaseFirestore fireStore;
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        mainBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
         auth = FirebaseAuth.getInstance();
