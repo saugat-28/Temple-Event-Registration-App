@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent userIntent = new Intent(getApplicationContext(), UserActivity.class);
+            Intent userIntent = new Intent(getApplicationContext(), AdminActivity.class);
             startActivity(userIntent);
             finish();
         }

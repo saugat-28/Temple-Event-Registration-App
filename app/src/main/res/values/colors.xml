@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FFFFFFDD</color>
     <color name="accent_color">#FFBB371A</color>
+    <color name="list_item_background">#F6F6D7</color>
 </resources>

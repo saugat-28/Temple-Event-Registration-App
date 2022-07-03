@@ -28,6 +28,27 @@ public class AddPoojaActivity extends AppCompatActivity {
         poojaBinding = ActivityAddPoojaBinding.inflate(getLayoutInflater());
         setContentView(poojaBinding.getRoot());
 
+        poojaListRef = FirebaseDatabase.getInstance().getReference().child("PoojaList");
+        poojaBinding.addPoojaButton.setOnClickListener(v -> {
+            checkField(poojaBinding.poojaName);
+            checkField(poojaBinding.poojaDate);
+            checkField(poojaBinding.poojaPrice);
+            checkField(poojaBinding.poojaDate);
+
+            if(valid){
+                String name = poojaBinding.poojaName.getText().toString();
+                String price = poojaBinding.poojaPrice.getText().toString();
+                String date = poojaBinding.poojaDate.getText().toString();
+                String desc =  poojaBinding.poojaDesc.getText().toString();
+
+                poojaItem = new PoojaItem(name, price, date, desc);
+
+                poojaListRef.child(name).setValue(poojaItem);
+                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), ShowPoojaListActivity.class));
+            }
+        });
+
         poojaBinding.poojaDate.addTextChangedListener(new TextWatcher() {
             private String current = "";
             private final Calendar cal = Calendar.getInstance();
@@ -90,26 +111,7 @@ public class AddPoojaActivity extends AppCompatActivity {
             }
         });
 
-        poojaListRef = FirebaseDatabase.getInstance().getReference().child("PoojaList");
-        poojaBinding.addPoojaButton.setOnClickListener(v -> {
-            checkField(poojaBinding.poojaName);
-            checkField(poojaBinding.poojaDate);
-            checkField(poojaBinding.poojaPrice);
-            checkField(poojaBinding.poojaDate);
 
-            if(valid){
-                String name = poojaBinding.poojaName.getText().toString();
-                String price = poojaBinding.poojaPrice.getText().toString();
-                String date = poojaBinding.poojaDate.getText().toString();
-                String desc =  poojaBinding.poojaDesc.getText().toString();
-
-                poojaItem = new PoojaItem(name, price, date, desc);
-
-                poojaListRef.child(name).setValue(poojaItem);
-                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), ShowPoojaListActivity.class));
-            }
-        });
     }
 
     private void checkField(EditText editText) {

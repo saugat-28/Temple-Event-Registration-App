@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.templeeventregistration.R;
+import com.project.templeeventregistration.admin.AdminActivity;
 import com.project.templeeventregistration.databinding.ActivityRegisterBinding;
 
 import java.util.HashMap;
@@ -26,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore fireStore;
     boolean valid = true;
-
+    private static final String TAG = "REGISTER ACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +61,11 @@ public class RegisterActivity extends AppCompatActivity {
                     userInfo.put("isUser", "1");
                     document.set(userInfo);
                     document.collection("Registrations");
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                     finish();
 
                 }).addOnFailureListener(e -> {
+                    Log.d(TAG, e.getMessage());
                     Toast.makeText(this, "Failed To Create Account", Toast.LENGTH_SHORT).show();
                 });
             }

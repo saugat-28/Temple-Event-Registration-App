@@ -6,6 +6,19 @@ public class PoojaItem {
     private String date;
     private String desc;
 
+    @Override
+    public String toString() {
+        return "PoojaItem{" +
+                "name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", date='" + date + '\'' +
+                ", desc='" + desc + '\'' +
+                '}';
+    }
+
+    public PoojaItem() {
+    }
+
     public PoojaItem(String name, String price, String date, String desc) {
         this.name = name;
         this.price = price;

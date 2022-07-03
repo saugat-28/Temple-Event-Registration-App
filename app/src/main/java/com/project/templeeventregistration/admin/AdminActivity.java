@@ -20,11 +20,11 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(adminBinding.getRoot());
 
         adminBinding.addPoojaButton.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), AddPoojaActivity.class));
+            startActivity(new Intent(this, AddPoojaActivity.class));
         });
 
         adminBinding.poojaListButton.setOnClickListener(v -> {
-
+            startActivity(new Intent(this, ShowPoojaListActivity.class));
         });
 
         adminBinding.viewRegistrationButton.setOnClickListener(v -> {
