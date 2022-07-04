@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding mainBinding;
     boolean valid = true;
     FirebaseAuth auth;
-    FirebaseFirestore fireStore;
+    FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(mainBinding.getRoot());
 
         auth = FirebaseAuth.getInstance();
-        fireStore = FirebaseFirestore.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         mainBinding.loginButton.setOnClickListener(v -> {
             checkField(mainBinding.loginEmail);
@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
-
         });
 
         mainBinding.createAccount.setOnClickListener(v -> {
@@ -55,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkUserAccessLevel(String uid) {
-        DocumentReference document = fireStore.collection("Users").document(uid);
+        DocumentReference document = firestore.collection("Users").document(uid);
         // Extract data from document
         document.get().addOnSuccessListener(documentSnapshot -> {
             Log.d("TAG", "onSuccess: " + documentSnapshot.getData());

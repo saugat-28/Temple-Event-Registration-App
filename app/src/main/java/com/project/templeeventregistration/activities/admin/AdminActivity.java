@@ -27,7 +27,7 @@ public class AdminActivity extends AppCompatActivity {
         });
 
         adminBinding.viewRegistrationButton.setOnClickListener(v -> {
-
+            startActivity(new Intent(this, ShowRegistrationsActivity.class));
         });
 
         adminBinding.logoutButton.setOnClickListener(v -> {

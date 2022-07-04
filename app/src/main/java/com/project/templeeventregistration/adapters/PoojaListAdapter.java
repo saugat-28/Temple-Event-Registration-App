@@ -38,7 +38,7 @@ public class PoojaListAdapter extends RecyclerView.Adapter<PoojaListAdapter.Pooj
     @NonNull
     @Override
     public PoojaItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new PoojaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.pooja_item, parent, false));
+        return new PoojaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pooja, parent, false));
     }
 
     @Override

@@ -21,7 +21,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding registerBinding;
     FirebaseAuth auth;
-    FirebaseFirestore fireStore;
+    FirebaseFirestore firestore;
     boolean valid = true;
     private static final String TAG = "REGISTER ACTIVITY";
     @Override
@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(registerBinding.getRoot());
 
         auth = FirebaseAuth.getInstance();
-        fireStore = FirebaseFirestore.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         registerBinding.registerButton.setOnClickListener(v -> {
             checkField(registerBinding.registerName);
@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
                     FirebaseUser user = auth.getCurrentUser();
                     Toast.makeText(this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
-                    DocumentReference document = fireStore.collection("Users").document(user.getUid());
+                    DocumentReference document = firestore.collection("Users").document(user.getUid());
                     Map<String, Object> userInfo = new HashMap<>();
                     userInfo.put("FullName", name);
                     userInfo.put("UserEmail", email);
