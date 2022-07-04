@@ -1,4 +1,4 @@
-package com.project.templeeventregistration.authentication;
+package com.project.templeeventregistration.activities.authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.project.templeeventregistration.admin.AdminActivity;
+import com.project.templeeventregistration.activities.admin.AdminActivity;
 import com.project.templeeventregistration.databinding.ActivityLoginBinding;
 import com.project.templeeventregistration.user.UserActivity;
 

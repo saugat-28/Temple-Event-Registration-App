@@ -1,4 +1,4 @@
-package com.project.templeeventregistration.admin;
+package com.project.templeeventregistration.activities.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 

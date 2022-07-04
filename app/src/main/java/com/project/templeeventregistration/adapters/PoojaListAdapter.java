@@ -1,7 +1,6 @@
 package com.project.templeeventregistration.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.templeeventregistration.R;
-import com.project.templeeventregistration.admin.ShowPoojaListActivity;
 import com.project.templeeventregistration.models.PoojaItem;
 
 import java.util.ArrayList;
@@ -52,7 +50,6 @@ public class PoojaListAdapter extends RecyclerView.Adapter<PoojaListAdapter.Pooj
         holder.desc.setText(poojaItem.getDesc());
         holder.delete.setOnClickListener(v -> {
             delete(poojaItem.getName());
-            Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_LONG).show();
         });
     }
 

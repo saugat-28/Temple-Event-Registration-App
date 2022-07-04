@@ -1,4 +1,4 @@
-package com.project.templeeventregistration.admin;
+package com.project.templeeventregistration.activities.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.project.templeeventregistration.R;
-import com.project.templeeventregistration.authentication.LoginActivity;
+import com.project.templeeventregistration.activities.authentication.LoginActivity;
 import com.project.templeeventregistration.databinding.ActivityAdminBinding;
 
 public class AdminActivity extends AppCompatActivity {

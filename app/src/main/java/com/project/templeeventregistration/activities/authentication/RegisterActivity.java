@@ -1,6 +1,5 @@
-package com.project.templeeventregistration.authentication;
+package com.project.templeeventregistration.activities.authentication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,15 +8,11 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.project.templeeventregistration.R;
-import com.project.templeeventregistration.admin.AdminActivity;
+import com.project.templeeventregistration.activities.admin.AdminActivity;
 import com.project.templeeventregistration.databinding.ActivityRegisterBinding;
 
 import java.util.HashMap;
