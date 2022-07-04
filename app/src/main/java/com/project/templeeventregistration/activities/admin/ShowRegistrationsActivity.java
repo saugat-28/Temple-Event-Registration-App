@@ -18,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.templeeventregistration.R;
-import com.project.templeeventregistration.adapters.RegistrationAdapter;
+import com.project.templeeventregistration.adapters.AdminRegistrationAdapter;
 import com.project.templeeventregistration.databinding.ActivityShowRegistrationsBinding;
 import com.project.templeeventregistration.models.PoojaRegistrationItem;
 
@@ -30,7 +30,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
     FirebaseFirestore firestore;
     private static final String TAG = "FirestoreSearchActivity";
     ArrayList<PoojaRegistrationItem> regList;
-    RegistrationAdapter registrationAdapter;
+    AdminRegistrationAdapter registrationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
         regList = new ArrayList<>();
-        registrationAdapter = new RegistrationAdapter(this, R.layout.item_admin_registration, regList);
+        registrationAdapter = new AdminRegistrationAdapter(this, R.layout.item_admin_registration, regList);
 
         registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
         CollectionReference reference = firestore.collection("AllRegistration");

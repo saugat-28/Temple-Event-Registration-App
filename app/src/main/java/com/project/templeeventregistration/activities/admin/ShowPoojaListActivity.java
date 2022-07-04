@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.project.templeeventregistration.adapters.PoojaListAdapter;
+import com.project.templeeventregistration.adapters.AdminPoojaListAdapter;
 import com.project.templeeventregistration.databinding.ActivityShowPoojaListBinding;
 import com.project.templeeventregistration.models.PoojaItem;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ShowPoojaListActivity extends AppCompatActivity {
     ActivityShowPoojaListBinding showPoojaListBinding;
     DatabaseReference poojaListRef;
-    private PoojaListAdapter poojaListAdapter;
+    private AdminPoojaListAdapter poojaListAdapter;
     private ArrayList<PoojaItem> poojaItemsList;
 
     @Override
@@ -33,7 +33,7 @@ public class ShowPoojaListActivity extends AppCompatActivity {
         poojaListRef = FirebaseDatabase.getInstance().getReference().child("PoojaList");
         poojaItemsList = new ArrayList<>();
 
-        poojaListAdapter = new PoojaListAdapter(this, poojaItemsList);
+        poojaListAdapter = new AdminPoojaListAdapter(this, poojaItemsList);
         showPoojaListBinding.poojaListRv.setLayoutManager(new LinearLayoutManager(this));
         showPoojaListBinding.poojaListRv.setAdapter(poojaListAdapter);
 

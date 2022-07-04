@@ -21,12 +21,12 @@ import com.project.templeeventregistration.models.PoojaItem;
 
 import java.util.ArrayList;
 
-public class PoojaListAdapter extends RecyclerView.Adapter<PoojaListAdapter.PoojaItemViewHolder> {
+public class AdminPoojaListAdapter extends RecyclerView.Adapter<AdminPoojaListAdapter.PoojaItemViewHolder> {
     ArrayList<PoojaItem> mList;
     Context context;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    public PoojaListAdapter(Context context, ArrayList<PoojaItem> mList) {
+    public AdminPoojaListAdapter(Context context, ArrayList<PoojaItem> mList) {
         this.context = context;
         this.mList = mList;
     }
@@ -38,7 +38,7 @@ public class PoojaListAdapter extends RecyclerView.Adapter<PoojaListAdapter.Pooj
     @NonNull
     @Override
     public PoojaItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new PoojaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pooja, parent, false));
+        return new PoojaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_admin_pooja, parent, false));
     }
 
     @Override

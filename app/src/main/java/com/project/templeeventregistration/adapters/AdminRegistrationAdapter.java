@@ -15,11 +15,11 @@ import com.project.templeeventregistration.models.PoojaRegistrationItem;
 
 import java.util.List;
 
-public class RegistrationAdapter extends ArrayAdapter<PoojaRegistrationItem> {
+public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationItem> {
     Context mContext;
     int mResource;
 
-    public RegistrationAdapter(@NonNull Context context, int resource, @NonNull List<PoojaRegistrationItem> objects) {
+    public AdminRegistrationAdapter(@NonNull Context context, int resource, @NonNull List<PoojaRegistrationItem> objects) {
         super(context, resource, objects);
         this.mContext = context;
         mResource = resource;
