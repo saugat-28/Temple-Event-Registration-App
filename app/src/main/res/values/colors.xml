@@ -11,4 +11,5 @@
     <color name="accent_color">#FFBB371A</color>
     <color name="list_item_background">#F6F6D7</color>
     <color name="list_item_text_color">#757474</color>
+    <color name="accent_color_2">#E45826</color>
 </resources>

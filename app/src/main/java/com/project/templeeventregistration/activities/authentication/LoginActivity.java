@@ -13,7 +13,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.templeeventregistration.activities.admin.AdminActivity;
 import com.project.templeeventregistration.databinding.ActivityLoginBinding;
-import com.project.templeeventregistration.user.UserActivity;
+import com.project.templeeventregistration.activities.user.UserActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = "LoginActivity";
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 // User is Non-Admin
                 Intent userIntent = new Intent(getApplicationContext(), UserActivity.class);
                 String username = documentSnapshot.getString("FullName");
-                userIntent.putExtra("usernameINTENT", username);
+                userIntent.putExtra("username", username);
                 startActivity(userIntent);
                 finish();
             }
@@ -89,9 +89,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent userIntent = new Intent(getApplicationContext(), AdminActivity.class);
-            startActivity(userIntent);
-            finish();
+            checkUserAccessLevel(FirebaseAuth.getInstance().getUid());
         }
     }
 }
