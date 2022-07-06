@@ -6,18 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.project.templeeventregistration.R;
 import com.project.templeeventregistration.adapters.AdminRegistrationAdapter;
 import com.project.templeeventregistration.databinding.ActivityShowRegistrationsBinding;
@@ -45,24 +39,21 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
 
         registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
         CollectionReference reference = firestore.collection("Registrations");
-        reference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if (!queryDocumentSnapshots.isEmpty()) {
+        reference.get().addOnSuccessListener(queryDocumentSnapshots -> {
+            if (!queryDocumentSnapshots.isEmpty()) {
 
-                    List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
+                List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
 
-                    for (DocumentSnapshot doc : documents) {
+                for (DocumentSnapshot doc : documents) {
 
-                        PoojaRegistrationAdminItem poojaItem = doc.toObject(PoojaRegistrationAdminItem.class);
-                        poojaItem.setPaymentId(doc.getId());
-                        Log.d(TAG, "Fetched Pooja Registration: " + poojaItem);
-                        regList.add(poojaItem);
-                    }
-                    registrationAdapter.notifyDataSetChanged();
-                    String countText = "Total count: " + registrationsBinding.registrationsListView.getCount();
-                    registrationsBinding.count.setText(countText);
+                    PoojaRegistrationAdminItem poojaItem = doc.toObject(PoojaRegistrationAdminItem.class);
+                    poojaItem.setPaymentId(doc.getId());
+                    Log.d(TAG, "Fetched Pooja Registration: " + poojaItem);
+                    regList.add(poojaItem);
                 }
+                registrationAdapter.notifyDataSetChanged();
+                String countText = "Total count: " + registrationsBinding.registrationsListView.getCount();
+                registrationsBinding.count.setText(countText);
             }
         });
     }
@@ -70,22 +61,23 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
     private void searchData(String s) {
         firestore.collection("Registrations").whereEqualTo("name", s)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
-                        regList.clear();
-                        for (DocumentSnapshot doc : task.getResult()) {
-                            PoojaRegistrationAdminItem model = new PoojaRegistrationAdminItem(
-                                    doc.getString("name"),
-                                    (String) doc.get("date"),
-                                    doc.getString("userName"),
-                                    doc.getString("userPhone"));
-                            regList.add(model);
-                        }
-                        registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
-                        String countText = "Total count: " + registrationsBinding.registrationsListView.getCount();
-                        registrationsBinding.count.setText(countText);
+                .addOnCompleteListener(task -> {
+                    regList.clear();
+                    for (DocumentSnapshot doc : task.getResult()) {
+                        PoojaRegistrationAdminItem model = new PoojaRegistrationAdminItem(
+                                doc.getString("paymentId"),
+                                doc.getString("poojaName"),
+                                (String) doc.get("poojaDate"),
+                                doc.getString("poojaPrice"),
+                                doc.getString("userName"),
+                                doc.getString("userPhone"),
+                                doc.getString("userEmail")
+                        );
+                        regList.add(model);
                     }
+                    registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
+                    String countText = "Total count: " + registrationsBinding.registrationsListView.getCount();
+                    registrationsBinding.count.setText(countText);
                 });
     }
 
@@ -110,8 +102,8 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        if(item.getItemId() == R.id.action_settings){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);

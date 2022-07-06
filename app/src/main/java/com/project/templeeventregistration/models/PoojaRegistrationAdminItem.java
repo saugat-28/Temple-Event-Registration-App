@@ -1,31 +1,26 @@
 package com.project.templeeventregistration.models;
 
 public class PoojaRegistrationAdminItem {
+    private String paymentId;
     private String poojaName;
     private String poojaDate;
     private String poojaPrice;
     private String userName;
     private String userPhone;
-    private String paymentId;
-
-    public PoojaRegistrationAdminItem(String poojaName, String poojaDate, String userName, String userPhone) {
-        this.poojaName = poojaName;
-        this.poojaDate = poojaDate;
-        this.userName = userName;
-        this.userPhone = userPhone;
-    }
+    private String userEmail;
 
     public PoojaRegistrationAdminItem(){
 
     }
 
-    public PoojaRegistrationAdminItem(String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone) {
+    public PoojaRegistrationAdminItem(String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone, String userEmail) {
         this.paymentId = paymentId;
         this.poojaName = poojaName;
         this.poojaDate = poojaDate;
         this.poojaPrice = poojaPrice;
         this.userName = userName;
         this.userPhone = userPhone;
+        this.userEmail = userEmail;
     }
 
     public String getPoojaName() {
@@ -75,5 +70,21 @@ public class PoojaRegistrationAdminItem {
                 "Date = " + poojaDate +
                 "UserName = " + userName +
                 "UserPhone = " + userPhone;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getPoojaPrice() {
+        return poojaPrice;
+    }
+
+    public void setPoojaPrice(String poojaPrice) {
+        this.poojaPrice = poojaPrice;
     }
 }
