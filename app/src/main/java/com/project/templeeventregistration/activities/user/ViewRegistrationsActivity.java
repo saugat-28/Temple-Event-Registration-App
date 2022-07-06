@@ -5,15 +5,13 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.project.templeeventregistration.adapters.UserRegistrationAdapter;
 import com.project.templeeventregistration.databinding.ActivityViewRegistrationsBinding;
-import com.project.templeeventregistration.models.PoojaRegistration;
+import com.project.templeeventregistration.models.PoojaRegistrationUserItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,7 @@ public class ViewRegistrationsActivity extends AppCompatActivity {
     FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private UserRegistrationAdapter adapter;
-    private List<PoojaRegistration> regList;
+    private List<PoojaRegistrationUserItem> regList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class ViewRegistrationsActivity extends AppCompatActivity {
 
                         for (DocumentSnapshot snapshot : list) {
 
-                            PoojaRegistration p = snapshot.toObject(PoojaRegistration.class);
+                            PoojaRegistrationUserItem p = snapshot.toObject(PoojaRegistrationUserItem.class);
                             p.setId(snapshot.getId());
                             regList.add(p);
                         }

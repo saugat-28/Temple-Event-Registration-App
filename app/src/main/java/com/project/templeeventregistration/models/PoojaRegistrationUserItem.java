@@ -4,27 +4,28 @@ import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
 
-public class PoojaRegistration implements Serializable {
+public class PoojaRegistrationUserItem implements Serializable {
     @Exclude
-    private String id;
+    private String paymentId;
     private String name;
     private String date;
     private String price;
 
-    PoojaRegistration(){}
+    PoojaRegistrationUserItem(){}
 
-    public PoojaRegistration(String name, String date, String price) {
+    public PoojaRegistrationUserItem(String name, String date, String price, String paymentId) {
         this.name = name;
         this.date = date;
         this.price = price;
+        this.paymentId = paymentId;
     }
 
     public String getId() {
-        return id;
+        return paymentId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String paymentId) {
+        this.paymentId = paymentId;
     }
 
     public String getName() {

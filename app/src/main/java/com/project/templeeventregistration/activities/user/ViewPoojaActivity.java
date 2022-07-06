@@ -31,9 +31,7 @@ public class ViewPoojaActivity extends AppCompatActivity {
     DatabaseReference poojaRef;
     UserPoojaListAdapter poojaListAdapter;
     ArrayList<PoojaItem> poojaItemList;
-    FirebaseAuth auth;
-    FirebaseFirestore firestore;
-    String userId, name, phone, email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,25 +65,7 @@ public class ViewPoojaActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
-
-        auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
-        userId = auth.getCurrentUser().getUid();
-        DocumentReference document = firestore.collection("Users").document(userId);
-        document.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                name = value.getString("FullName");
-                email = value.getString("UserEmail");
-                phone = value.getString("PhoneNumber");
-                //reg_name.setText(rname);
-                //email.setText(remail);
-                //phone.setText(rphone);
-                //Intent intent = new Intent(ShowActivityUser.this, PoojaRegister.class);
-
-            }
-        });
+        });;
 
     }
 }

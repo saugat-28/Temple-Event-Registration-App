@@ -1,6 +1,7 @@
 package com.project.templeeventregistration.activities.admin;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,7 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.project.templeeventregistration.R;
 import com.project.templeeventregistration.adapters.AdminRegistrationAdapter;
 import com.project.templeeventregistration.databinding.ActivityShowRegistrationsBinding;
-import com.project.templeeventregistration.models.PoojaRegistrationItem;
+import com.project.templeeventregistration.models.PoojaRegistrationAdminItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
     ActivityShowRegistrationsBinding registrationsBinding;
     FirebaseFirestore firestore;
     private static final String TAG = "FirestoreSearchActivity";
-    ArrayList<PoojaRegistrationItem> regList;
+    ArrayList<PoojaRegistrationAdminItem> regList;
     AdminRegistrationAdapter registrationAdapter;
 
     @Override
@@ -43,7 +44,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
         registrationAdapter = new AdminRegistrationAdapter(this, R.layout.item_admin_registration, regList);
 
         registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
-        CollectionReference reference = firestore.collection("AllRegistration");
+        CollectionReference reference = firestore.collection("Registrations");
         reference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -53,8 +54,9 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
 
                     for (DocumentSnapshot doc : documents) {
 
-                        PoojaRegistrationItem poojaItem = doc.toObject(PoojaRegistrationItem.class);
-                        poojaItem.setId(doc.getId());
+                        PoojaRegistrationAdminItem poojaItem = doc.toObject(PoojaRegistrationAdminItem.class);
+                        poojaItem.setPaymentId(doc.getId());
+                        Log.d(TAG, "Fetched Pooja Registration: " + poojaItem);
                         regList.add(poojaItem);
                     }
                     registrationAdapter.notifyDataSetChanged();
@@ -66,14 +68,14 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
     }
 
     private void searchData(String s) {
-        firestore.collection("AllRegistrations").whereEqualTo("name", s)
+        firestore.collection("Registrations").whereEqualTo("name", s)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
                         regList.clear();
                         for (DocumentSnapshot doc : task.getResult()) {
-                            PoojaRegistrationItem model = new PoojaRegistrationItem(
+                            PoojaRegistrationAdminItem model = new PoojaRegistrationAdminItem(
                                     doc.getString("name"),
                                     (String) doc.get("date"),
                                     doc.getString("userName"),

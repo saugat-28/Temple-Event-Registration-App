@@ -13,19 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.templeeventregistration.R;
 import com.project.templeeventregistration.activities.user.NotificationActivity;
-import com.project.templeeventregistration.models.PoojaRegistration;
+import com.project.templeeventregistration.models.PoojaRegistrationUserItem;
 
 import java.util.List;
 
 public class UserRegistrationAdapter extends RecyclerView.Adapter<UserRegistrationAdapter.PoojaViewHolder>{
 
     private Context context;
-    private List<PoojaRegistration> regList;
+    private List<PoojaRegistrationUserItem> regList;
 
     public UserRegistrationAdapter() {
     }
 
-    public UserRegistrationAdapter(Context context, List<PoojaRegistration> regList) {
+    public UserRegistrationAdapter(Context context, List<PoojaRegistrationUserItem> regList) {
         this.context = context;
         this.regList = regList;
     }
@@ -38,7 +38,7 @@ public class UserRegistrationAdapter extends RecyclerView.Adapter<UserRegistrati
 
     @Override
     public void onBindViewHolder(@NonNull PoojaViewHolder holder, int position) {
-        PoojaRegistration pooja = regList.get(position);
+        PoojaRegistrationUserItem pooja = regList.get(position);
 
         holder.regName.setText(pooja.getName());
         holder.regPrice.setText(pooja.getPrice());

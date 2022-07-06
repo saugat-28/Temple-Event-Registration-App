@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.project.templeeventregistration.R;
-import com.project.templeeventregistration.models.PoojaRegistrationItem;
+import com.project.templeeventregistration.models.PoojaRegistrationAdminItem;
 
 import java.util.List;
 
-public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationItem> {
+public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationAdminItem> {
     Context mContext;
     int mResource;
 
-    public AdminRegistrationAdapter(@NonNull Context context, int resource, @NonNull List<PoojaRegistrationItem> objects) {
+    public AdminRegistrationAdapter(@NonNull Context context, int resource, @NonNull List<PoojaRegistrationAdminItem> objects) {
         super(context, resource, objects);
         this.mContext = context;
         mResource = resource;
@@ -29,12 +29,12 @@ public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationItem
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        String poojaName = getItem(position).getName();
-        String poojaDate = getItem(position).getDate();
+        String poojaName = getItem(position).getPoojaName();
+        String poojaDate = getItem(position).getPoojaDate();
         String personName = getItem(position).getUserName();
         String personPhone = getItem(position).getUserPhone();
 
-        PoojaRegistrationItem modelAllReg = new PoojaRegistrationItem(poojaName, poojaDate, personName, personPhone);
+        PoojaRegistrationAdminItem modelAllReg = new PoojaRegistrationAdminItem(poojaName, poojaDate, personName, personPhone);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 
