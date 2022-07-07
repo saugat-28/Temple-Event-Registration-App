@@ -12,126 +12,135 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="8dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FCFCDA"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/pooja_item_name_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:text="Pooja Name:"
+            android:textColor="#8F3232"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Pooja Name:"
-                android:textColor="#8F3232"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/pooja_item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                tools:text="Pooja 1"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/pooja_item_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/pooja_item_name_label"
+            app:layout_constraintLeft_toRightOf="@id/pooja_item_name_label"
+            app:layout_constraintTop_toTopOf="@id/pooja_item_name_label"
+            tools:text="Pooja 1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Price: ₹"
-                android:textColor="#8F3232"
-                android:textSize="20sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/pooja_item_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="250"
-                android:textColor="#000000"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/pooja_item_price_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Pooja Price:"
+            android:textColor="#8F3232"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pooja_item_name_label" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Date:"
-                android:textColor="#8F3232"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/pooja_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/pooja_item_price_label"
+            app:layout_constraintLeft_toRightOf="@id/pooja_item_price_label"
+            app:layout_constraintTop_toTopOf="@id/pooja_item_price_label"
+            tools:text="₹" />
 
-            <TextView
-                android:id="@+id/pooja_item_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                tools:text="12/08/21"
-                android:textColor="#000000"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/pooja_item_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Pooja Date:"
+            android:textColor="#8F3232"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pooja_item_price_label" />
 
-            <Button
-                android:id="@+id/pooja_delete_button"
-                android:layout_width="83dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="150dp"
-                android:width="20dp"
-                android:height="100dp"
-                android:backgroundTint="#BB371A"
-                android:text="@string/delete"
-                android:textSize="12sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/pooja_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/pooja_item_date_label"
+            app:layout_constraintLeft_toRightOf="@id/pooja_item_date_label"
+            app:layout_constraintTop_toTopOf="@id/pooja_item_date_label"
+            tools:text="DD/MM/YYYY" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/pooja_item_desc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Pooja Description:"
+            android:textColor="#8F3232"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pooja_item_date_label" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="@string/description"
-                android:textColor="#8F3232"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/pooja_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/pooja_item_desc_label"
+            app:layout_constraintLeft_toRightOf="@id/pooja_item_desc_label"
+            app:layout_constraintTop_toTopOf="@id/pooja_item_desc_label"
+            tools:text="Brief Description" />
 
-            <TextView
-                android:id="@+id/pooja_item_desc"
-                android:layout_width="213dp"
-                android:layout_height="59dp"
-                android:layout_marginStart="5dp"
-                tools:text="This is Pooja 1"
-                android:textColor="#000000"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/pooja_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/accent_color"
+            android:textColor="@color/white"
+            android:text="@string/delete"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>
