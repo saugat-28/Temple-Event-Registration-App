@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userInfo.put("isUser", "1");
                     document.set(userInfo);
                     document.collection("Registrations");
-                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     finish();
 
                 }).addOnFailureListener(e -> {
