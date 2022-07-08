@@ -85,11 +85,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            checkUserAccessLevel(FirebaseAuth.getInstance().getUid());
-        }
-    }
 }
