@@ -53,8 +53,6 @@ public class ShowPendingRegistrationsActivity extends AppCompatActivity {
                     regList.add(poojaItem);
                 }
                 registrationsAdapter.notifyDataSetChanged();
-                String countText = "Total count: " + regList.size();
-                pendingRegistrationsBinding.pendingCount.setText(countText);
             }
         });
 

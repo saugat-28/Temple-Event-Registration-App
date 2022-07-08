@@ -24,8 +24,9 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Pooja Name"
+            app:layout_constraintRight_toRightOf="parent"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +38,8 @@
             android:text="Pooja Date"
             android:layout_marginTop="10dp"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            app:layout_constraintRight_toRightOf="@id/ipr_pooja_name"
             app:layout_constraintLeft_toLeftOf="@id/ipr_pooja_name"
             app:layout_constraintTop_toBottomOf="@id/ipr_pooja_name" />
 
@@ -50,7 +52,8 @@
             android:text="Pooja Price"
             android:layout_marginTop="10dp"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            app:layout_constraintRight_toRightOf="@id/ipr_pooja_date"
             app:layout_constraintLeft_toLeftOf="@id/ipr_pooja_date"
             app:layout_constraintTop_toBottomOf="@id/ipr_pooja_date" />
 
@@ -76,7 +79,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="User Name"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
@@ -89,7 +92,7 @@
             app:layout_constraintLeft_toLeftOf="@id/ipr_user_name"
             app:layout_constraintTop_toBottomOf="@id/ipr_user_name"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ipr_user_email"
@@ -101,7 +104,7 @@
             app:layout_constraintLeft_toLeftOf="@id/ipr_user_phone"
             app:layout_constraintTop_toBottomOf="@id/ipr_user_phone"
             android:textColor="@color/list_item_text_color"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,7 +112,7 @@
         android:id="@+id/ipr_payment_id_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:text="Payment ID:"
         android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -129,7 +132,7 @@
         app:layout_constraintTop_toTopOf="@id/ipr_payment_id_label"
         app:layout_constraintBottom_toBottomOf="@id/ipr_payment_id_label"
         android:textColor="@color/list_item_text_color"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/ipr_approve_button"

@@ -1,6 +1,7 @@
 package com.project.templeeventregistration.models;
 
 public class PoojaRegistrationAdminItem {
+    private String userId;
     private String paymentId;
     private String poojaName;
     private String poojaDate;
@@ -9,11 +10,12 @@ public class PoojaRegistrationAdminItem {
     private String userPhone;
     private String userEmail;
 
-    public PoojaRegistrationAdminItem(){
+    public PoojaRegistrationAdminItem() {
 
     }
 
-    public PoojaRegistrationAdminItem(String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone, String userEmail) {
+    public PoojaRegistrationAdminItem(String userId, String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone, String userEmail) {
+        this.userId = userId;
         this.paymentId = paymentId;
         this.poojaName = poojaName;
         this.poojaDate = poojaDate;
@@ -63,14 +65,6 @@ public class PoojaRegistrationAdminItem {
         this.paymentId = paymentId;
     }
 
-    @Override
-    public String toString() {
-        return  "id = " + paymentId +
-                "Name = " + poojaName +
-                "Date = " + poojaDate +
-                "UserName = " + userName +
-                "UserPhone = " + userPhone;
-    }
 
     public String getUserEmail() {
         return userEmail;
@@ -87,4 +81,22 @@ public class PoojaRegistrationAdminItem {
     public void setPoojaPrice(String poojaPrice) {
         this.poojaPrice = poojaPrice;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "id = " + paymentId +
+                "Name = " + poojaName +
+                "Date = " + poojaDate +
+                "UserName = " + userName +
+                "UserPhone = " + userPhone;
+    }
+
 }

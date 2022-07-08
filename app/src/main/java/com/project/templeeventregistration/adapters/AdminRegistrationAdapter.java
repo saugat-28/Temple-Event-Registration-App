@@ -29,6 +29,7 @@ public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationAdmi
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
+        String userId = getItem(position).getUserId();
         String paymentId = getItem(position).getPaymentId();
         String poojaName = getItem(position).getPoojaName();
         String poojaDate = getItem(position).getPoojaDate();
@@ -37,7 +38,7 @@ public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationAdmi
         String personPhone = getItem(position).getUserPhone();
         String personEmail = getItem(position).getUserEmail();
 
-        PoojaRegistrationAdminItem modelAllReg = new PoojaRegistrationAdminItem(paymentId, poojaName, poojaDate, poojaPrice, personName, personPhone, personEmail);
+        PoojaRegistrationAdminItem modelAllReg = new PoojaRegistrationAdminItem(userId, paymentId, poojaName, poojaDate, poojaPrice, personName, personPhone, personEmail);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 

@@ -20,17 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/pending_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:text="Total Count: "
-        android:textColor="@color/red_accent_color"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pending_registration_label"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pending_registrations_recyclerView"
@@ -41,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pending_count" />
+        app:layout_constraintTop_toBottomOf="@id/pending_registration_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

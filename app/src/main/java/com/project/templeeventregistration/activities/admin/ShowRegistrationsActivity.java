@@ -66,6 +66,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
                     regList.clear();
                     for (DocumentSnapshot doc : task.getResult()) {
                         PoojaRegistrationAdminItem model = new PoojaRegistrationAdminItem(
+                                doc.getString("userId"),
                                 doc.getString("paymentId"),
                                 doc.getString("poojaName"),
                                 (String) doc.get("poojaDate"),
