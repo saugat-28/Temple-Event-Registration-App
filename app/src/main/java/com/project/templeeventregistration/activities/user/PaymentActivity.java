@@ -1,5 +1,6 @@
 package com.project.templeeventregistration.activities.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -70,10 +71,14 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
     @Override
     public void onPaymentSuccess(String paymentId) {
-        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Payment ID");
         builder.setMessage(paymentId);
-        builder.show();
+        builder.setNeutralButton("OK", (dialogInterface, i) -> {
+            startActivity(new Intent(this, ViewRegistrationsActivity.class));
+            finish();
+        });
+
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference userReference = firestore.collection("Users").document(userId);
@@ -86,10 +91,13 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         PoojaRegistrationAdminItem poojaRegistrationAdminItem = new PoojaRegistrationAdminItem(paymentId, poojaName, poojaDate, poojaPrice, userName, userPhone, userEmail);
         DocumentReference registrationsReference = firestore.collection("Registrations").document(paymentId);
         registrationsReference.set(poojaRegistrationAdminItem);
+
+        // Show Alert
+        builder.show();
     }
 
     @Override
     public void onPaymentError(int i, String s) {
-        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Payment Failed: " + s, Toast.LENGTH_SHORT).show();
     }
 }
