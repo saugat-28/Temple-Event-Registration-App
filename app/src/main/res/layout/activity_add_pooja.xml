@@ -83,7 +83,7 @@
         android:layout_height="84dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="184dp"
-        android:backgroundTint="#E45826"
+        android:backgroundTint="@color/orange_accent_color"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:gravity="start|top"

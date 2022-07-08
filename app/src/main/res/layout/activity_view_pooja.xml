@@ -12,7 +12,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:backgroundTint="@color/accent_color"
+        android:backgroundTint="@color/red_accent_color"
         android:src="@drawable/ic_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_marginTop="40dp"
         android:includeFontPadding="true"
         android:text="List Of Poojas"
-        android:textColor="@color/accent_color_2"
+        android:textColor="@color/orange_accent_color"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

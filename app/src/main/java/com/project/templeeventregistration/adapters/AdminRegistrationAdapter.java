@@ -43,13 +43,17 @@ public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationAdmi
 
         TextView listPoojaName = (TextView) convertView.findViewById(R.id.iar_pooja_name);
         TextView listPoojaDate = (TextView) convertView.findViewById(R.id.iar_pooja_date);
+        TextView listPoojaPrice = (TextView) convertView.findViewById(R.id.iar_pooja_price);
         TextView listName = (TextView) convertView.findViewById(R.id.iar_user_name);
         TextView listPhone = (TextView) convertView.findViewById(R.id.iar_user_phone);
+        TextView listEmail = (TextView) convertView.findViewById(R.id.iar_user_email);
 
         listPoojaName.setText(poojaName);
         listPoojaDate.setText(poojaDate);
+        listPoojaPrice.setText(poojaPrice);
         listName.setText(personName);
         listPhone.setText(personPhone);
+        listEmail.setText(personEmail);
 
         return convertView;
     }

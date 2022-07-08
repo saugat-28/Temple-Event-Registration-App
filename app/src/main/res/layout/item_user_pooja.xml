@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/accent_color"
+            android:backgroundTint="@color/red_accent_color"
             android:textColor="@color/white"
             android:text="@string/register"
             android:textSize="10sp"

@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:text="All Registrations"
-        android:textColor="@color/accent_color"
+        android:textColor="@color/red_accent_color"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="Total count: "
-        android:textColor="@color/accent_color"
+        android:textColor="@color/red_accent_color"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/all_registration_label" />
