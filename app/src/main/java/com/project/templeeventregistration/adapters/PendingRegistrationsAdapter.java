@@ -66,9 +66,9 @@ public class PendingRegistrationsAdapter extends RecyclerView.Adapter<PendingReg
             poojaName = itemView.findViewById(R.id.ipr_pooja_name);
             poojaDate = itemView.findViewById(R.id.ipr_pooja_date);
             poojaPrice = itemView.findViewById(R.id.ipr_pooja_price);
-            userName = itemView.findViewById(R.id.iar_user_name);
-            userPhone = itemView.findViewById(R.id.iar_user_phone);
-            userEmail = itemView.findViewById(R.id.iar_user_email);
+            userName = itemView.findViewById(R.id.ipr_user_name);
+            userPhone = itemView.findViewById(R.id.ipr_user_phone);
+            userEmail = itemView.findViewById(R.id.ipr_user_email);
             paymentId = itemView.findViewById(R.id.ipr_payment_id);
             approve = itemView.findViewById(R.id.ipr_approve_button);
             reject = itemView.findViewById(R.id.ipr_reject_button);

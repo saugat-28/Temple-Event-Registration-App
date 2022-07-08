@@ -23,7 +23,7 @@ import java.util.List;
 public class ShowRegistrationsActivity extends AppCompatActivity {
     ActivityShowRegistrationsBinding registrationsBinding;
     FirebaseFirestore firestore;
-    private static final String TAG = "FirestoreSearchActivity";
+    private static final String TAG = "Show Registrations";
     ArrayList<PoojaRegistrationAdminItem> regList;
     AdminRegistrationAdapter registrationAdapter;
 
@@ -38,6 +38,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
         registrationAdapter = new AdminRegistrationAdapter(this, R.layout.item_admin_registration, regList);
 
         registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
+
         CollectionReference reference = firestore.collection("Registrations");
         reference.get().addOnSuccessListener(queryDocumentSnapshots -> {
             if (!queryDocumentSnapshots.isEmpty()) {

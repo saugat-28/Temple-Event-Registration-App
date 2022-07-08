@@ -49,19 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 
-    <Button
-        android:id="@+id/add_pooja_button"
-        android:layout_width="209dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Add Pooja"
-        android:textSize="18sp"
-        app:backgroundTint="#E45826"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_registration_button" />
 
     <Button
         android:id="@+id/view_registration_button"
@@ -75,6 +62,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pooja_list_button" />
+
+    <Button
+        android:id="@+id/view_pending_registration_button"
+        android:layout_width="297dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="View Pending registrations"
+        android:textSize="18sp"
+        app:backgroundTint="#E45826"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_registration_button" />
+
+    <Button
+        android:id="@+id/add_pooja_button"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Add Pooja"
+        android:textSize="18sp"
+        app:backgroundTint="#E45826"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_pending_registration_button" />
 
     <Button
         android:id="@+id/logout_button"
