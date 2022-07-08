@@ -43,6 +43,7 @@ public class UserRegistrationAdapter extends RecyclerView.Adapter<UserRegistrati
         holder.regName.setText(pooja.getName());
         holder.regPrice.setText(pooja.getPrice());
         holder.regDate.setText(pooja.getDate());
+        holder.regStatus.setText(pooja.getStatus());
         holder.reminderButton.setOnClickListener(v -> {
             Intent intent = new Intent(context, NotificationActivity.class);
             intent.putExtra("name", pooja.getName());
@@ -60,6 +61,7 @@ public class UserRegistrationAdapter extends RecyclerView.Adapter<UserRegistrati
         private final TextView regName;
         private final TextView regPrice;
         private final TextView regDate;
+        private final TextView regStatus;
         private final Button reminderButton;
 
         public PoojaViewHolder(@NonNull View itemView) {
@@ -68,6 +70,7 @@ public class UserRegistrationAdapter extends RecyclerView.Adapter<UserRegistrati
             regPrice = itemView.findViewById(R.id.reg_price);
             regDate = itemView.findViewById(R.id.reg_date);
             reminderButton = itemView.findViewById(R.id.btn_reminder);
+            regStatus = itemView.findViewById(R.id.reg_status);
         }
     }
 }

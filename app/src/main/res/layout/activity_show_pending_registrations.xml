@@ -5,25 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".activities.user.ViewRegistrationsActivity">
+    tools:context=".activities.admin.ShowPendingRegistrationsActivity">
 
     <TextView
-        android:id="@+id/my_registrations_label"
+        android:id="@+id/pending_registration_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/montserrat"
-        android:gravity="center"
-        android:paddingTop="5dp"
-        android:text="My Registrations"
-        android:textColor="#F48B29"
+        android:text="Pending Registrations"
+        android:textColor="@color/red_accent_color"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/pending_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:text="Total Count: "
+        android:textColor="@color/red_accent_color"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pending_registration_label"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_registrations_recyclerView"
+        android:id="@+id/pending_registrations_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
@@ -31,5 +41,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_registrations_label" />
+        app:layout_constraintTop_toBottomOf="@id/pending_count" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

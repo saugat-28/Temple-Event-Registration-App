@@ -84,12 +84,12 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         DocumentReference userReference = firestore.collection("Users").document(userId);
 
         // Set Registration details for user
-        PoojaRegistrationUserItem poojaRegistrationUserItem = new PoojaRegistrationUserItem(poojaName, poojaDate, poojaPrice, paymentId);
+        PoojaRegistrationUserItem poojaRegistrationUserItem = new PoojaRegistrationUserItem(poojaName, poojaDate, poojaPrice, paymentId, "Approval Pending");
         userReference.collection("Registrations").document(paymentId).set(poojaRegistrationUserItem);
 
         // Set Registration details for admin
         PoojaRegistrationAdminItem poojaRegistrationAdminItem = new PoojaRegistrationAdminItem(paymentId, poojaName, poojaDate, poojaPrice, userName, userPhone, userEmail);
-        DocumentReference registrationsReference = firestore.collection("Registrations").document(paymentId);
+        DocumentReference registrationsReference = firestore.collection("PendingRegistrations").document(paymentId);
         registrationsReference.set(poojaRegistrationAdminItem);
 
         // Show Alert

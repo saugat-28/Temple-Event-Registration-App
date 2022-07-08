@@ -10,14 +10,17 @@ public class PoojaRegistrationUserItem implements Serializable {
     private String name;
     private String date;
     private String price;
+    private String status;
 
-    PoojaRegistrationUserItem(){}
 
-    public PoojaRegistrationUserItem(String name, String date, String price, String paymentId) {
+    PoojaRegistrationUserItem() {}
+
+    public PoojaRegistrationUserItem(String name, String date, String price, String paymentId, String status) {
         this.name = name;
         this.date = date;
         this.price = price;
         this.paymentId = paymentId;
+        this.status = status;
     }
 
     public String getId() {
@@ -51,4 +54,10 @@ public class PoojaRegistrationUserItem implements Serializable {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
+
 }
+
