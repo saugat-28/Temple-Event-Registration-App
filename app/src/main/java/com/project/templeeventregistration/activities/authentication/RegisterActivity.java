@@ -68,6 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerBinding.goToLoginButton.setOnClickListener(v -> {
             startActivity(new Intent(this, LoginActivity.class));
+            finish();
         });
     }
 

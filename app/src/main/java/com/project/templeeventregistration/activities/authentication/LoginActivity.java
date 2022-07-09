@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         mainBinding.createAccount.setOnClickListener(v -> {
             Intent intent = new Intent(getBaseContext(), RegisterActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 
