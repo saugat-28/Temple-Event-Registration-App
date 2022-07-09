@@ -25,7 +25,7 @@
         android:layout_marginTop="40dp"
         android:includeFontPadding="true"
         android:text="List Of Poojas"
-        android:textColor="#E45826"
+        android:textColor="@color/orange_accent_color"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

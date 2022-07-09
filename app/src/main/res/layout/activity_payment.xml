@@ -40,7 +40,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Name: "
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -53,7 +53,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="User Name"
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/pooja_reg_username_label"
             app:layout_constraintTop_toTopOf="@id/pooja_reg_username_label" />
@@ -66,7 +66,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Pooja: "
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pooja_reg_username_label" />
@@ -79,7 +79,7 @@
             android:gravity="center"
             android:layout_marginTop="24dp"
             android:text="Pooja Name"
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/pooja_reg_username"
             app:layout_constraintTop_toBottomOf="@id/pooja_reg_username" />
@@ -92,7 +92,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Price: "
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pooja_reg_name" />
@@ -105,7 +105,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Pooja Price"
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/pooja_reg_username"
             app:layout_constraintTop_toBottomOf="@+id/pooja_reg_name" />
@@ -119,7 +119,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Date: "
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pooja_reg_price_label" />
@@ -132,7 +132,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Pooja Date"
-            android:textColor="#8A8686"
+            android:textColor="@color/grey_accent_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/pooja_reg_username"
             app:layout_constraintTop_toBottomOf="@id/pooja_reg_price" />
