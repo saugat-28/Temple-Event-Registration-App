@@ -73,7 +73,8 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
                                 doc.getString("poojaPrice"),
                                 doc.getString("userName"),
                                 doc.getString("userPhone"),
-                                doc.getString("userEmail")
+                                doc.getString("userEmail"),
+                                doc.getString("regDate")
                         );
                         regList.add(model);
                     }

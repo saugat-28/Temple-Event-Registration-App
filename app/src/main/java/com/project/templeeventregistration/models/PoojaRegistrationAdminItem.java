@@ -9,12 +9,13 @@ public class PoojaRegistrationAdminItem {
     private String userName;
     private String userPhone;
     private String userEmail;
+    private String regDate;
 
     public PoojaRegistrationAdminItem() {
 
     }
 
-    public PoojaRegistrationAdminItem(String userId, String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone, String userEmail) {
+    public PoojaRegistrationAdminItem(String userId, String paymentId, String poojaName, String poojaDate, String poojaPrice, String userName, String userPhone, String userEmail, String regDate) {
         this.userId = userId;
         this.paymentId = paymentId;
         this.poojaName = poojaName;
@@ -23,6 +24,7 @@ public class PoojaRegistrationAdminItem {
         this.userName = userName;
         this.userPhone = userPhone;
         this.userEmail = userEmail;
+        this.regDate = regDate;
     }
 
     public String getPoojaName() {
@@ -88,6 +90,14 @@ public class PoojaRegistrationAdminItem {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 
     @Override

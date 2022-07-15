@@ -38,7 +38,7 @@ public class AdminRegistrationAdapter extends ArrayAdapter<PoojaRegistrationAdmi
         String personPhone = getItem(position).getUserPhone();
         String personEmail = getItem(position).getUserEmail();
 
-        PoojaRegistrationAdminItem modelAllReg = new PoojaRegistrationAdminItem(userId, paymentId, poojaName, poojaDate, poojaPrice, personName, personPhone, personEmail);
+        PoojaRegistrationAdminItem modelAllReg = new PoojaRegistrationAdminItem(userId, paymentId, poojaName, poojaDate, poojaPrice, personName, personPhone, personEmail, "SomeDate");
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 

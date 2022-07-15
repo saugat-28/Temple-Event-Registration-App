@@ -2,6 +2,7 @@ package com.project.templeeventregistration.activities.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -18,6 +19,10 @@ import com.razorpay.PaymentResultListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PaymentActivity extends AppCompatActivity implements PaymentResultListener {
     ActivityPaymentBinding paymentBinding;
@@ -88,7 +93,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         userReference.collection("Registrations").document(paymentId).set(poojaRegistrationUserItem);
 
         // Set Registration details for admin
-        PoojaRegistrationAdminItem poojaRegistrationAdminItem = new PoojaRegistrationAdminItem(userId, paymentId, poojaName, poojaDate, poojaPrice, userName, userPhone, userEmail);
+        PoojaRegistrationAdminItem poojaRegistrationAdminItem = new PoojaRegistrationAdminItem(userId, paymentId, poojaName, poojaDate, poojaPrice, userName, userPhone, userEmail, getCurrentDate());
         DocumentReference registrationsReference = firestore.collection("PendingRegistrations").document(paymentId);
         registrationsReference.set(poojaRegistrationAdminItem);
 
@@ -100,4 +105,10 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
     public void onPaymentError(int i, String s) {
         Toast.makeText(getApplicationContext(), "Payment Failed: " + s, Toast.LENGTH_SHORT).show();
     }
+
+
+    String getCurrentDate(){
+        return new SimpleDateFormat("dd'/'MM'/'yyyy").format(new Date());
+    }
+
 }
