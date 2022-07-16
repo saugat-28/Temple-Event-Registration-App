@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.templeeventregistration.R;
@@ -97,6 +98,9 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         DocumentReference registrationsReference = firestore.collection("PendingRegistrations").document(paymentId);
         registrationsReference.set(poojaRegistrationAdminItem);
 
+        // Add Item to Firebase Database for report generation
+        FirebaseDatabase.getInstance().getReference().child("DailyReport").child(getCurrentDate()).child(paymentId).setValue(poojaRegistrationAdminItem);
+
         // Show Alert
         builder.show();
     }
@@ -108,7 +112,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
 
     String getCurrentDate(){
-        return new SimpleDateFormat("dd'/'MM'/'yyyy").format(new Date());
+        return new SimpleDateFormat("dd'-'MM'-'yyyy").format(new Date());
     }
 
 }

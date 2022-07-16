@@ -67,7 +67,7 @@
         android:backgroundTint="@color/orange_accent_color"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Date: DD/MM/YYYY"
+        android:hint="Date: DD-MM-YYYY"
         android:inputType="date"
         android:textColor="@color/grey_accent_color"
         android:textColorHint="@color/grey_accent_color"

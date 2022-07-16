@@ -14,9 +14,12 @@
         android:theme="@style/Theme.TempleEventRegistration"
         tools:targetApi="31">
         <activity
+            android:name=".activities.admin.DailyReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,8 +61,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.authentication.LoginActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

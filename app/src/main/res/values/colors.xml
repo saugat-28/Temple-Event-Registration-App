@@ -12,6 +12,7 @@
     <color name="list_item_background">#F6F6D7</color>
     <color name="list_item_text_color">#757474</color>
     <color name="orange_accent_color">#E45826</color>
+    <color name="dark_orange_accent_color">#e87147</color>
     <color name="yellow_accent_color">#F48B29</color>
     <color name="grey_accent_color">#8A8686</color>
 </resources>

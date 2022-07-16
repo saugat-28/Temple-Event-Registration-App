@@ -46,6 +46,7 @@ public class AddPoojaActivity extends AppCompatActivity {
                 poojaListRef.child(name).setValue(poojaItem);
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), ShowPoojaListActivity.class));
+                finish();
             }
         });
 
@@ -90,7 +91,7 @@ public class AddPoojaActivity extends AppCompatActivity {
                         clean = String.format("%02d%02d%02d",day, mon, year);
                     }
 
-                    clean = String.format("%s/%s/%s", clean.substring(0, 2),
+                    clean = String.format("%s-%s-%s", clean.substring(0, 2),
                             clean.substring(2, 4),
                             clean.substring(4, 8));
 

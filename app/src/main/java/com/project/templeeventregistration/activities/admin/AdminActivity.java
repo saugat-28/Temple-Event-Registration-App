@@ -34,6 +34,10 @@ public class AdminActivity extends AppCompatActivity {
             startActivity(new Intent(this, ShowPendingRegistrationsActivity.class));
         });
 
+        adminBinding.dailyReportButton.setOnClickListener(v -> {
+            startActivity(new Intent(this, DailyReportActivity.class));
+        });
+
         adminBinding.logoutButton.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
