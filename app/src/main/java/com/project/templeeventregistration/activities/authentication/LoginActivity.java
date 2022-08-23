@@ -28,26 +28,37 @@ public class LoginActivity extends AppCompatActivity {
         mainBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
+        // Getting auth and firestore instance
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
+        // Handle Login Button Click
         mainBinding.loginButton.setOnClickListener(v -> {
+            // Validate email and password
             checkField(mainBinding.loginEmail);
             checkField(mainBinding.loginPassword);
+            //
             if (valid) {
+                // Get Email and Password from to input
                 String email = mainBinding.loginEmail.getText().toString();
                 String password = mainBinding.loginPassword.getText().toString();
+
+                // Attempt sign is using Firebase Auth
                 auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
+                    // On Login Success
                     Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
                     checkUserAccessLevel(authResult.getUser().getUid());
                 }).addOnFailureListener(e -> {
+                    // On Login Failure
                     Log.d(TAG, e.getMessage());
                     Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
         });
 
+        // Handle Login Button Click
         mainBinding.createAccount.setOnClickListener(v -> {
+            // Move to RegisterActivity
             Intent intent = new Intent(getBaseContext(), RegisterActivity.class);
             startActivity(intent);
             finish();
@@ -61,13 +72,13 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("TAG", "onSuccess: " + documentSnapshot.getData());
             //identify user access level
             if (documentSnapshot.getString("isAdmin") != null) {
-                // User is Admin
+                // User is Admin: Start AdminActivity
                 Intent adminIntent = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(adminIntent);
                 finish();
             }
             if (documentSnapshot.getString("isUser") != null) {
-                // User is Non-Admin
+                // User is Non-Admin: Start UserActivity
                 Intent userIntent = new Intent(getApplicationContext(), UserActivity.class);
                 String username = documentSnapshot.getString("FullName");
                 userIntent.putExtra("username", username);
@@ -77,7 +88,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    // Function for validating input fields
     private void checkField(EditText editText) {
+        // if fields are empty set valid as false and display toast message
         if (editText.getText().toString().isEmpty()) {
             Toast.makeText(this, "Email and Password can't be empty!", Toast.LENGTH_LONG).show();
             valid = false;

@@ -21,7 +21,6 @@ import java.util.List;
 public class ShowPendingRegistrationsActivity extends AppCompatActivity {
     ActivityShowPendingRegistrationsBinding pendingRegistrationsBinding;
     FirebaseFirestore firestore;
-    private static final String TAG = "Pending Registration";
     ArrayList<PoojaRegistrationAdminItem> regList;
     PendingRegistrationsAdapter registrationsAdapter;
 
@@ -31,14 +30,16 @@ public class ShowPendingRegistrationsActivity extends AppCompatActivity {
         pendingRegistrationsBinding = ActivityShowPendingRegistrationsBinding.inflate(getLayoutInflater());
         setContentView(pendingRegistrationsBinding.getRoot());
 
+        // Firestore and registration list initialization
         firestore = FirebaseFirestore.getInstance();
         regList = new ArrayList<>();
 
+        // Set layout manager and adapter for recycler view
         pendingRegistrationsBinding.pendingRegistrationsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         registrationsAdapter = new PendingRegistrationsAdapter(regList, this);
         pendingRegistrationsBinding.pendingRegistrationsRecyclerView.setAdapter(registrationsAdapter);
 
+        // Get Pending Registrations list from Firestore collection
         CollectionReference reference = firestore.collection("PendingRegistrations");
         reference.get().addOnSuccessListener(queryDocumentSnapshots -> {
             if (!queryDocumentSnapshots.isEmpty()) {
@@ -49,13 +50,10 @@ public class ShowPendingRegistrationsActivity extends AppCompatActivity {
 
                     PoojaRegistrationAdminItem poojaItem = doc.toObject(PoojaRegistrationAdminItem.class);
                     poojaItem.setPaymentId(doc.getId());
-                    Log.d(TAG, "Fetched Pooja Registration: " + poojaItem);
                     regList.add(poojaItem);
                 }
                 registrationsAdapter.notifyDataSetChanged();
             }
         });
-
-
     }
 }

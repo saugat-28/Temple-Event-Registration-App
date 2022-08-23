@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,12 +30,15 @@ public class AddPoojaActivity extends AppCompatActivity {
         setContentView(poojaBinding.getRoot());
 
         poojaListRef = FirebaseDatabase.getInstance().getReference().child("PoojaList");
+        // Handle Clicks on Add Pooja Button
         poojaBinding.addPoojaButton.setOnClickListener(v -> {
+            // Check All Fields
             checkField(poojaBinding.poojaName);
             checkField(poojaBinding.poojaDate);
             checkField(poojaBinding.poojaPrice);
             checkField(poojaBinding.poojaDate);
 
+            // If all fields are valid add Pooja item to Firebase Realtime Database
             if(valid){
                 String name = poojaBinding.poojaName.getText().toString();
                 String price = poojaBinding.poojaPrice.getText().toString();
@@ -50,6 +54,8 @@ public class AddPoojaActivity extends AppCompatActivity {
             }
         });
 
+        // Handle Text Change on Date Fields
+        // Prevents Date to be set in long format
         poojaBinding.poojaDate.addTextChangedListener(new TextWatcher() {
             private String current = "";
             private final Calendar cal = Calendar.getInstance();
@@ -115,8 +121,10 @@ public class AddPoojaActivity extends AppCompatActivity {
 
     }
 
+    // Function for Validating input Fields
     private void checkField(EditText editText) {
         if (editText.getText().toString().isEmpty()) {
+            // If field is empty display toast and set valid as false
             Toast.makeText(this, "Email and Password can't be empty!", Toast.LENGTH_LONG).show();
             valid = false;
         } else {

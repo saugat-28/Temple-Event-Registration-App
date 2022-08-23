@@ -30,13 +30,16 @@ public class ShowPoojaListActivity extends AppCompatActivity {
         showPoojaListBinding = ActivityShowPoojaListBinding.inflate(getLayoutInflater());
         setContentView(showPoojaListBinding.getRoot());
 
+        // Initialise Pooja List Reference and Pooja Item List
         poojaListRef = FirebaseDatabase.getInstance().getReference().child("PoojaList");
         poojaItemsList = new ArrayList<>();
 
+        // Set Layout Manager and Adapter for Recycler View
         poojaListAdapter = new AdminPoojaListAdapter(this, poojaItemsList);
         showPoojaListBinding.poojaListRv.setLayoutManager(new LinearLayoutManager(this));
         showPoojaListBinding.poojaListRv.setAdapter(poojaListAdapter);
 
+        // Get Pooja List values from Firebase Database
         poojaListRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -53,6 +56,7 @@ public class ShowPoojaListActivity extends AppCompatActivity {
             }
         });
 
+        // Start AdminActivity Dashboard Page
         showPoojaListBinding.homeButton.setOnClickListener(v -> {
             Intent homeIntent = new Intent(this, AdminActivity.class);
             startActivity(homeIntent);

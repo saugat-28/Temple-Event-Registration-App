@@ -33,12 +33,15 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
         registrationsBinding = ActivityShowRegistrationsBinding.inflate(getLayoutInflater());
         setContentView(registrationsBinding.getRoot());
 
+        // Initialise Firebase Firestore, Registration List and List Adapter
         firestore = FirebaseFirestore.getInstance();
         regList = new ArrayList<>();
         registrationAdapter = new AdminRegistrationAdapter(this, R.layout.item_admin_registration, regList);
 
+        // Set Adapter for Recycler View
         registrationsBinding.registrationsListView.setAdapter(registrationAdapter);
 
+        // Get registrations from Firestore database reference
         CollectionReference reference = firestore.collection("Registrations");
         reference.get().addOnSuccessListener(queryDocumentSnapshots -> {
             if (!queryDocumentSnapshots.isEmpty()) {
@@ -59,6 +62,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
         });
     }
 
+    // Search Data in the firestore collection
     private void searchData(String s) {
         firestore.collection("Registrations").whereEqualTo("name", s)
                 .get()
@@ -84,6 +88,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
                 });
     }
 
+    // Create Options menu with search bar option
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_menu, menu);
@@ -104,6 +109,7 @@ public class ShowRegistrationsActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // On Click on settings item display Toast
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings) {

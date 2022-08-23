@@ -22,13 +22,18 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        // Wait for 1500 Milliseconds (1.5 Seconds) then call checkUser method
         (new Handler()).postDelayed(this::checkUser, 1500);
 
     }
 
+    // Check any user is logged in or not
     private void checkUser() {
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            checkUserAccessLevel(FirebaseAuth.getInstance().getUid());
+        // Get Firebase auth
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        // If user is not null then check access level else open LoginActivity
+        if (auth.getCurrentUser() != null) {
+            checkUserAccessLevel(auth.getUid());
         } else {
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             finish();

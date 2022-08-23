@@ -35,11 +35,14 @@ public class DailyReportActivity extends AppCompatActivity {
         reportBinding = ActivityDailyReportBinding.inflate(getLayoutInflater());
         setContentView(reportBinding.getRoot());
 
+        // Initialize list for Pooja List Items and Pooja List Adapter
         poojaItemsList = new ArrayList<>();
         poojaListAdapter = new DailyReportAdapter(this, poojaItemsList);
+        // Set Layout Manager and Adapter
         reportBinding.dailyReportRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         reportBinding.dailyReportRecyclerView.setAdapter(poojaListAdapter);
 
+        // Fetch Details from Firebase Realtime Database
         reportBinding.fetchDetailsButton.setOnClickListener(v -> {
             if(checkField(reportBinding.dateInput)){
                 String date = reportBinding.dateInput.getText().toString();
@@ -66,6 +69,7 @@ public class DailyReportActivity extends AppCompatActivity {
             }
         });
 
+        // Add Text Change Listener on EditText
         reportBinding.dateInput.addTextChangedListener(new TextWatcher() {
             private String current = "";
             private final Calendar cal = Calendar.getInstance();
@@ -129,8 +133,10 @@ public class DailyReportActivity extends AppCompatActivity {
         });
     }
 
+    // Check Field for Empty values
     private boolean checkField(EditText editText) {
         String checkString = editText.getText().toString();
+        // If String is empty show toast message
         if (checkString.isEmpty()) {
             Toast.makeText(this, "Email and Password can't be empty!", Toast.LENGTH_LONG).show();
             return false;
